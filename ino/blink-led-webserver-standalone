@@ -2,7 +2,8 @@
 #include <ESP8266WebServer.h>
 
 ESP8266WebServer server;
-const char WiFiAPPSK[] = "elhs";
+//password must be at least 8 characters
+const char WiFiAPPSK[] = "elhs1234";
 
 const char INDEX_HTML[] =
   "<!DOCTYPE HTML>"
@@ -36,6 +37,9 @@ void setup()
   server.on("/",sendIndex);
   server.on("/toggle", toggleLED);
   server.begin();
+  Serial.println("");
+  Serial.println("");
+  Serial.print("Server running on http://192.168.4.1/");
 }
 
 void loop()
@@ -55,7 +59,7 @@ void toggleLED(){
 
 void setupWiFi()
 {
-  WiFi.mode(WIFI_STA);
+  WiFi.mode(WIFI_AP);
 
   // Do a little work to get a unique-ish name. Append the
   // last two bytes of the MAC (HEX'd) to "Thing-":
@@ -64,7 +68,7 @@ void setupWiFi()
   String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
                  String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
   macID.toUpperCase();
-  String AP_NameString = "ESP8266 Thing " + macID;
+  String AP_NameString = "ELHS ESP8266 " + macID;
 
   char AP_NameChar[AP_NameString.length() + 1];
   memset(AP_NameChar, 0, AP_NameString.length() + 1);
@@ -73,7 +77,4 @@ void setupWiFi()
     AP_NameChar[i] = AP_NameString.charAt(i);
 
   WiFi.softAP(AP_NameChar, WiFiAPPSK);
-  Serial.println("");
-  Serial.print("IP Address: ");
-  Serial.print(WiFi.SSID());
 }
