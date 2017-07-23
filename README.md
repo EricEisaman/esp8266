@@ -1,7 +1,7 @@
 # ESP8266
 A collection of Arduino Skectches for ESP8266.
 
-Note: You can develop with a cheaper production board however flashing the firmware is requires a little more effort.
+Note: You can develop with a cheaper production board however, flashing the firmware requires a little more effort.
 
 ## [Instructables Tutorial to Get You Started](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/)
 
