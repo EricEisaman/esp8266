@@ -3,7 +3,6 @@
 
 ESP8266WebServer server;
 
-uint8_t pin_led = 6;
 char* ssid = <YOUR WIFI SSID>;
 char* password = <YOUR WIFI PASSWORD>;
 
@@ -32,7 +31,7 @@ const char INDEX_HTML[] =
 void setup()
 {
   WiFi.begin(ssid,password);
-  Serial.begin(115200);
+  Serial.begin(9600);
   while(WiFi.status()!=WL_CONNECTED)
   {
     Serial.print(".");
