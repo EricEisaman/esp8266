@@ -11,7 +11,12 @@ Note: You can develop with a cheaper production board however flashing the firmw
 ### $3-$4 Production Board
 !["Production Board"](https://www.allaboutcircuits.com/uploads/thumbnails/ESP8266.png "$3-$4 Production Board")
 
-## Blink LED WebServer Demo
+## Blink LED WebServer Connected to Internet Router Demo
 !["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver.png "Screenshot")
 
-[Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver.ino)
+[Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-connected-to-internet-router.ino)
+
+## Blink LED WebServer Connected to Internet Router Demo
+!["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver.png "Screenshot")
+
+[Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-standalone.ino)
