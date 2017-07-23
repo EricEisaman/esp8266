@@ -17,6 +17,6 @@ Note: You can develop with a cheaper production board however flashing the firmw
 [Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-connected-to-internet-router.ino)
 
 ## Blink LED WebServer Connected to Internet Router Demo
-!["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver.png "Screenshot")
+!["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver-standalone.png "Screenshot")
 
 [Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-standalone.ino)
