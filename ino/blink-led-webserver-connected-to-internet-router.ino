@@ -30,6 +30,7 @@ const char INDEX_HTML[] =
 
 void setup()
 {
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid,password);
   Serial.begin(9600);
   while(WiFi.status()!=WL_CONNECTED)
