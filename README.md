@@ -1,7 +1,7 @@
 # ESP8266
 A collection of Arduino Skectches for ESP8266.
 
-**Note:** You can develop prototypes or build production devices with either board. The obvious benefit of the ESP8266-01 production boards is their lower price, not that either model is cost prohibitive. Flashing the firmware on the ESP8266 development boards can be done simply with a micro-usb cable.
+**Note:** You can develop prototypes or build production devices with either board. The ESP8266-01 production boards have alower average price and smaller form factor. Flashing the firmware on the ESP8266 development boards can be done simply with a micro-usb cable.
 
 ## [Tutorial to Get You Started with a Development Board](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/)
 
