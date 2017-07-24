@@ -5,8 +5,8 @@ A collection of Arduino Skectches for ESP8266.
 
 ## [Tutorial to Get You Started with a Development Board](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/)
 
-### $7 Development Board
-!["Dev Board"](https://cdn.shopify.com/s/files/1/1723/8439/products/TECH3182_a_large.png "$7 Development Board")
+### $3-$8 Development Board
+!["Dev Board"](https://cdn.shopify.com/s/files/1/1723/8439/products/TECH3182_a_large.png "$3-$8 Development Board")
 
 ## [Tutorial to Get You Started with a Production Board](https://create.arduino.cc/projecthub/ROBINTHOMAS/programming-esp8266-esp-01-with-arduino-011389)
 
