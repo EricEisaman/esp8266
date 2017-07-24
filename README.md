@@ -19,12 +19,12 @@ A collection of Arduino Skectches for ESP8266 to get you going with the best sta
 ### $2-$4 Production Board
 !["Production Board"](https://www.allaboutcircuits.com/uploads/thumbnails/ESP8266.png "$2-$4 Production Board")
 
-## Blink LED WebServer Connected to Internet Router Demo
+## Blink LED from ESP8266 WebServer Connected to Internet Router
 !["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver.png "Screenshot")
 
 [Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-connected-to-internet-router.ino)
 
-## Blink LED WebServer Connected to Internet Router Demo
+## Blink LED from ESP8266 WebServer acting as Standalone WiFi Access Point
 !["screenshot"](https://raw.githubusercontent.com/EricEisaman/esp8266/master/images/screenshot-blink-led-webserver-standalone.png "Screenshot")
 
 [Arduino Sketch](https://github.com/EricEisaman/esp8266/blob/master/ino/blink-led-webserver-standalone.ino)
