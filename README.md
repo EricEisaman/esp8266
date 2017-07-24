@@ -11,12 +11,12 @@ A collection of Arduino Skectches for ESP8266 to get you going with the best sta
 
 ## [Tutorial to Get You Started with an ESP8266 NodeMCU Development Board](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/)
 
-### $3-$8 Development Board
+### $3-$8 ESP8266 NodeMCU Development Board
 !["Dev Board"](https://cdn.shopify.com/s/files/1/1723/8439/products/TECH3182_a_large.png "$3-$8 Development Board")
 
 ## [Tutorial to Get You Started with an ESP8266-01 Production Board](https://create.arduino.cc/projecthub/ROBINTHOMAS/programming-esp8266-esp-01-with-arduino-011389)
 
-### $2-$4 Production Board
+### $2-$4 ESP8266-01 Production Board
 !["Production Board"](https://www.allaboutcircuits.com/uploads/thumbnails/ESP8266.png "$2-$4 Production Board")
 
 ## Blink LED from ESP8266 WebServer Connected to Internet Router
