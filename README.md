@@ -7,7 +7,7 @@
 # ESP8266
 A collection of Arduino Skectches for ESP8266 to get you going with the best starter board in IoT.
 
-**Note:** You can develop prototypes or build production devices with either board. The ESP8266-01 production boards have a lower average price and smaller form factor. ESP8266 development boards have a simpler flashing method which can be done solely with a micro-usb cable. Variants of these models may have different voltage tolerances, baud rates, wifi bandwidths, wifi power, and onboard memory.
+**Note:** You can develop prototypes or build production devices with either board. The ESP8266-01 production boards have a lower average price and smaller form factor. ESP8266 NodeMCU development boards have a simpler flashing method which can be done solely with a micro-usb cable. Variants of these models may have different voltage tolerances, baud rates, wifi bandwidths, wifi power, and onboard memory.
 
 ## [Tutorial to Get You Started with an ESP8266 NodeMCU Development Board](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/)
 
