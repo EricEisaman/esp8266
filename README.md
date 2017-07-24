@@ -1,3 +1,9 @@
+<!--
+  Title: ESP8266 - CHEAP AND EASY IoT !!!
+  Description: Examples to get you started with the best class of starter boards for the Internet of Things (IoT).
+  Author: EricEisaman
+-->
+
 # ESP8266
 A collection of Arduino Skectches for ESP8266.
 
