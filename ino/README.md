@@ -13,3 +13,13 @@ ____
   Devices must connect directly to the ESP8266 wireless access point then go to http://192.168.4.1/. 
   
   You get to set the SSID and password in the code! :grin:
+  
+###  :gem: buzz-buzzer-firebase-and-local-control.ino
+
+  Note: This sketch uses a deprecated authentication API and may be no longer available at the time you read this.
+  
+  :sunglasses:
+  
+  
+  
+  
