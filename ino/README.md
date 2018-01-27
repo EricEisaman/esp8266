@@ -16,9 +16,7 @@ ____
   
 ###  :gem: buzz-buzzer-firebase-and-local-control.ino
 
-  Note: This sketch uses a deprecated authentication API and may be no longer available at the time you read this.
-  
-  :sunglasses:
+  Note: This sketch uses a deprecated authentication API and may be no longer available at the time you read this.:sunglasses:
   
   
   
