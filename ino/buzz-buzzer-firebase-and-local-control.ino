@@ -91,10 +91,10 @@ void toggleLED(){
 void buzzBuzzer(){
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(buzzerPin,2000,1000);
-  delay(3000);
-  tone(buzzerPin,0);
   //server.send(204,"");
   server.send(200,"text/plain","Buzz Buzzer!\n");
+  delay(3000);
+  tone(buzzerPin,0);
   Firebase.setString("buzz", "false");
 }
 
