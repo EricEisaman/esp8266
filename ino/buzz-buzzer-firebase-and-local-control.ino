@@ -22,7 +22,7 @@ const char INDEX_HTML[] =
   "</style>"
   "</head>"
   "<body>"
-  "<h1>ESP8266 Standalone Access Point Demo</h1>"
+  "<h1>ESP8266 Direct Access Demo</h1>"
   "<button onclick='toggleLED()'>Toggle LED</button>"
   "<button onclick='buzzBuzzer()'>Buzz Buzzer</button>"
   "<script>"
