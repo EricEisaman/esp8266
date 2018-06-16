@@ -8,7 +8,7 @@
 #define WIFI_PASSWORD "YOUR_WIFI_NETWORK_PASSWORD"
 #define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define ANALOG_IN A0
-#define LED_PIN 13
+#define LED_PIN D7
 ESP8266WebServer server;
 //password must be at least 8 characters
 const char WiFiAPPSK[] = "12345678";
