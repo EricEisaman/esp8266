@@ -6,6 +6,7 @@
 #define FIREBASE_AUTH "YOUR FIREBASE AUTHORIZATION KEY"
 #define WIFI_SSID "YOUR_SSID"
 #define WIFI_PASSWORD "YOUR_PASSWORD"
+#define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define VIBRATION_PIN D2
 #define BUZZER_PIN D3
 ESP8266WebServer server;
@@ -102,7 +103,7 @@ void setupWiFi()
   String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
                  String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
   macID.toUpperCase();
-  String AP_NameString = "YHA ESP8266 " + macID;
+  String AP_NameString = ESP8266_SSID_PREFIX + macID;
 
   char AP_NameChar[AP_NameString.length() + 1];
   memset(AP_NameChar, 0, AP_NameString.length() + 1);
