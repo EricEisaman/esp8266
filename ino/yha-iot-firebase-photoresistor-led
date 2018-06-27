@@ -69,8 +69,9 @@ void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     int analogInValue = analogRead(ANALOG_IN);
-    String brightness = String(analogInValue);
-    Firebase.setString("share/brightness", brightness);
+    //String brightness = String(analogInValue);
+    //Firebase.setString("share/brightness", brightness);
+    Firebase.setInt("share/brightness", analogInValue);
     checkFirebaseTime = millis();
   }
   server.handleClient();
