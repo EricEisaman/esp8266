@@ -52,9 +52,18 @@ void setup()
   Serial.println("");
   Serial.println("");
   Serial.print("Server running on http://192.168.4.1/");
+  Serial.println("");
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setString("share/buzz", "false");
+  if(Firebase.failed()){
+    Serial.print("Firebase connection failed!");
+    Serial.println("");
+    Serial.print(Firebase.error());
+  } else {
+    Serial.print("Firebase connection success!");
+  }
+  Serial.println("");
 }
 
 int timePassed (int time) {
