@@ -55,7 +55,7 @@ void setup()
   Serial.println("");
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  Firebase.setString("share/buzz", "false");
+  Firebase.setBool("share/buzz", false);
   if(Firebase.failed()){
     Serial.print("Firebase connection failed!");
     Serial.println("");
@@ -77,12 +77,12 @@ int timePassed (int time) {
 }
 
 int checkFirebaseTime = 0;
-String buzz = "false";
+bool buzz = false;
 void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
-    buzz = Firebase.getString("share/buzz");
-    if(buzz == "true") buzzBuzzer();
+    buzz = Firebase.getBool("share/buzz");
+    if(buzz) buzzBuzzer();
     checkFirebaseTime = millis();
   }
   server.handleClient();
@@ -100,7 +100,7 @@ void toggleLED(){
 
 void buzzBuzzer(){
   //server.send(204,"");
-  Firebase.setString("share/buzz", "false");
+  Firebase.setBool("share/buzz", false);
   server.send(200,"text/plain","Buzz Buzzer!\n");
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(buzzerPin,1300,500);
