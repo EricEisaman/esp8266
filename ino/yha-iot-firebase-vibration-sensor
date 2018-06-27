@@ -27,7 +27,7 @@ void setup()
   pinMode(BUILTIN_LED, OUTPUT);
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  Firebase.setString("share/buzz", "false");
+  Firebase.setBool("share/buzz", false);
 }
 
 int timePassed (int time) {
@@ -41,14 +41,14 @@ int timePassed (int time) {
 }
 long vibration;
 int checkFirebaseTime = 0;
-String buzz = "false";
+bool buzz = false;
 void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     setVibration();
     Serial.println(vibration);
-    buzz = Firebase.getString("share/buzz");
-    if(buzz == "true") buzzBuzzer();
+    buzz = Firebase.getBool("share/buzz");
+    if(buzz) buzzBuzzer();
     checkFirebaseTime = millis();
   }
 }
@@ -60,7 +60,7 @@ void toggleLED(){
 }
 
 void buzzBuzzer(){
-  Firebase.setString("share/buzz", "false");
+  Firebase.setBool("share/buzz", false);
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(BUZZER_PIN,2000,500);
   delay(500);
@@ -72,8 +72,9 @@ void buzzBuzzer(){
 void setVibration(){
   delay(10);
   vibration = pulseIn(VIBRATION_PIN, HIGH);
-  String vibrationString = String(vibration);
-  Firebase.setString("share/vibration",vibrationString);
+  //String vibrationString = String(vibration);
+  //Firebase.setString("share/vibration",vibrationString);
+  Firebase.setInt("share/vibration",vibration);
   if(vibration > 9000){
     Firebase.setString("share/buzz","true");
   }
