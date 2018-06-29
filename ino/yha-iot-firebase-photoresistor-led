@@ -80,13 +80,13 @@ void loop()
     int analogInValue = analogRead(ANALOG_IN);
     Firebase.setInt("share/brightness", analogInValue);
     if(analogInValue <= DARKNESS_THRESHOLD && !isDark){
-      digitalWrite(LED_PIN,LOW);
+      digitalWrite(LED_PIN,HIGH);
       isDark = true;
       Serial.print("");
       Serial.println("IT IS DARK. I WILL TURN THE LED ON.");
     } else if(analogInValue > DARKNESS_THRESHOLD){
       isDark = false;
-      digitalWrite(LED_PIN,HIGH);
+      digitalWrite(LED_PIN,LOW);
     } 
     checkFirebaseTime = millis();
   }
