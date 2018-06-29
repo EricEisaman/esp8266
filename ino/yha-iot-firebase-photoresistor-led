@@ -8,7 +8,8 @@
 #define WIFI_PASSWORD "YOUR_WIFI_NETWORK_PASSWORD"
 #define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define ANALOG_IN A0
-#define LED_PIN D7
+#define LED_PIN D8
+#define DARKNESS_THRESHOLD 300
 ESP8266WebServer server;
 //password must be at least 8 characters
 const char WiFiAPPSK[] = "your ESP8266 password";
@@ -26,7 +27,6 @@ const char INDEX_HTML[] =
   "<body>"
   "<h1>ESP8266 Direct Access Demo</h1>"
   "<button onclick='toggleLED()'>Toggle LED</button>"
-  "<button onclick='buzzBuzzer()'>Buzz Buzzer</button>"
   "<script>"
     "function toggleLED(){"
       "fetch('/toggleLED').then(stream=>stream.text()).then(text=>console.log(text))"
@@ -51,7 +51,15 @@ void setup()
   Serial.print("Server running on http://192.168.4.1/");
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-  Firebase.setString("share/brightness", "?");
+  Firebase.setInt("share/brightness", -1);
+  if(Firebase.failed()){
+    Serial.print("Firebase connection failed!");
+    Serial.println("");
+    Serial.print(Firebase.error());
+  } else {
+    Serial.print("Firebase connection success!");
+  }
+  Serial.println("");
 }
 
 int timePassed (int time) {
@@ -65,13 +73,20 @@ int timePassed (int time) {
 }
 
 int checkFirebaseTime = 0;
+bool isDark = false;
 void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     int analogInValue = analogRead(ANALOG_IN);
-    //String brightness = String(analogInValue);
-    //Firebase.setString("share/brightness", brightness);
     Firebase.setInt("share/brightness", analogInValue);
+    if(analogInValue <= DARKNESS_THRESHOLD && !isDark){
+      digitalWrite(LED_PIN,LOW);
+      isDark = true;
+      Serial.print("");
+      Serial.println("IT IS DARK. I WILL TURN THE LED ON.");
+    } else if(analogInValue > DARKNESS_THRESHOLD){
+      isDark = false;
+    } 
     checkFirebaseTime = millis();
   }
   server.handleClient();
