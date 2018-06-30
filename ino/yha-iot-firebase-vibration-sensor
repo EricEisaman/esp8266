@@ -26,6 +26,7 @@ void setup()
 
   pinMode(VIBRATION_PIN, INPUT);
   pinMode(BUILTIN_LED, OUTPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setBool("share/buzz", false);
@@ -73,11 +74,9 @@ void buzzBuzzer(){
 void setVibration(){
   delay(10);
   vibration = pulseIn(VIBRATION_PIN, HIGH);
-  //String vibrationString = String(vibration);
-  //Firebase.setString("share/vibration",vibrationString);
   Firebase.setInt("share/vibration",vibration);
   if(vibration > 9000){
-    Firebase.setString("share/buzz","true");
+    Firebase.setBool("share/buzz",true);
   }
 }
 
