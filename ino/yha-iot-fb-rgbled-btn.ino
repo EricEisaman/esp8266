@@ -11,7 +11,7 @@
 #define BLUE_LED D0
 #define BUTTON D3
 ESP8266WebServer server;
-//password must be at least 8 characters
+//Password for direct ESP8266 connection. Must be at least 8 characters
 const char WiFiAPPSK[] = "12345678";
 
 const char INDEX_HTML[] =
