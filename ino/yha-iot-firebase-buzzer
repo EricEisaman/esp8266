@@ -8,8 +8,8 @@
 #define buzzerPin D2
 #define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 ESP8266WebServer server;
-//password must be at least 8 characters
-const char WiFiAPPSK[] = "your esp8266 password";
+//password for direct ESP8266 login must be at least 8 characters
+const char WiFiAPPSK[] = "12345678";
 
 const char INDEX_HTML[] =
   "<!DOCTYPE HTML>"
