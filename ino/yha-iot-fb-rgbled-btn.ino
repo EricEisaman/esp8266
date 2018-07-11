@@ -79,14 +79,18 @@ int checkFirebaseTime = 0;
 String colorState = "red";
 void loop()
 {
-  if(digitalRead(BUTTON) == !digitalRead(BLUE_LED)){
+  if(!digitalRead(BUTTON)){
      toggleLED();
      if(colorState == "red") colorState = "purple";
      else colorState = "red";
     }
   if (timePassed (checkFirebaseTime) >= 100) {
-    Serial.println(digitalRead(D3));
-    Firebase.setString("share/colorState", colorState);  
+    Serial.println(digitalRead(BUTTON));
+    String fbColorState = Firebase.getString("share/colorState");
+    if(fbColorState != colorState){
+       colorState = fbColorState;
+       toggleLED();
+      } 
     checkFirebaseTime = millis();
   }
   server.handleClient();
