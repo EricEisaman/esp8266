@@ -52,12 +52,12 @@ void setup()
   Serial.println("");
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setInt("share/brightness", -1);
-  if(Firebase.failed()){
-    Serial.print("Firebase connection failed!");
+  if(Firebase.success()){
+    Serial.print("Firebase write success!");
+  } else {
+    Serial.print("Firebase write failed!");
     Serial.println("");
     Serial.print(Firebase.error());
-  } else {
-    Serial.print("Firebase connection success!");
   }
   Serial.println("");
 }
