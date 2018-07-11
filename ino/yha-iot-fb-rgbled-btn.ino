@@ -1,6 +1,5 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
-#include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 #define FIREBASE_HOST "YOUR_FIREBASE_PROJECT.firebaseio.com"
 #define FIREBASE_AUTH "YOUR FIREBASE AUTHORIZATION KEY"
