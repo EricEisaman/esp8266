@@ -55,11 +55,11 @@ void setup()
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setString("share/colorState", "red");
   if(Firebase.failed()){
-    Serial.print("Firebase connection failed!");
+    Serial.print("Firebase write failed!");
     Serial.println("");
     Serial.print(Firebase.error());
   } else {
-    Serial.print("Firebase connection success!");
+    Serial.print("Firebase write success!");
   }
   Serial.println("");
 }
