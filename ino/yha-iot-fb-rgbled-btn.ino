@@ -54,12 +54,12 @@ void setup()
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setString("share/colorState", "red");
-  if(Firebase.failed()){
+  if(Firebase.success()){
+    Serial.print("Firebase write success!");
+  } else {
     Serial.print("Firebase write failed!");
     Serial.println("");
-    Serial.print(Firebase.error());
-  } else {
-    Serial.print("Firebase write success!");
+    Serial.print(Firebase.error());  
   }
   Serial.println("");
 }
