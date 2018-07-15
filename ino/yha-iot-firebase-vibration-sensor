@@ -1,6 +1,4 @@
 #include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
-#include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 #define FIREBASE_HOST "YOUR_FIREBASE_PROJECT.firebaseio.com"
 #define FIREBASE_AUTH "YOUR FIREBASE AUTHORIZATION KEY"
@@ -9,27 +7,29 @@
 #define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define VIBRATION_PIN D2
 #define BUZZER_PIN D3
-ESP8266WebServer server;
+
 //password must be at least 8 characters
 const char WiFiAPPSK[] = "your ESP8266 password";
 
 void setup()
 {
   Serial.begin(9600);
+  
   setupWiFi();
-  pinMode(LED_BUILTIN, OUTPUT); 
-  digitalWrite(LED_BUILTIN,LOW);
-  //server.begin();
-  Serial.println("");
-  Serial.println("");
-  Serial.print("Server running on http://192.168.4.1/");
 
   pinMode(VIBRATION_PIN, INPUT);
-  pinMode(BUILTIN_LED, OUTPUT);
   pinMode(BUZZER_PIN, OUTPUT);
 
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   Firebase.setBool("share/buzz", false);
+  if(Firebase.success()){
+    Serial.print("Firebase write success!");
+  } else {
+    Serial.print("Firebase write failed!");
+    Serial.println("");
+    Serial.print(Firebase.error());
+  }
+  Serial.println("");
 }
 
 int timePassed (int time) {
@@ -50,15 +50,9 @@ void loop()
     setVibration();
     Serial.println(vibration);
     buzz = Firebase.getBool("share/buzz");
-    if(buzz) buzzBuzzer();
+    if(buzz && Firebase.success()) buzzBuzzer();
     checkFirebaseTime = millis();
   }
-}
-
-void toggleLED(){
-  digitalWrite(LED_BUILTIN,!digitalRead(LED_BUILTIN));
-  //server.send(204,"");
-  server.send(200,"text/plain","Toggle LED!\n");
 }
 
 void buzzBuzzer(){
@@ -66,9 +60,7 @@ void buzzBuzzer(){
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(BUZZER_PIN,2000,500);
   delay(500);
-  tone(BUZZER_PIN,0);
-  //server.send(204,"");
-  server.send(200,"text/plain","Buzz Buzzer!\n");
+  digitalWrite(BUZZER_PIN,LOW);
 }
 
 void setVibration(){
@@ -82,8 +74,7 @@ void setVibration(){
 
 void setupWiFi()
 {
-  WiFi.mode(WIFI_AP_STA);
-  //Set up Access Point
+  WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("connecting");
   while (WiFi.status() != WL_CONNECTED) {
@@ -93,22 +84,4 @@ void setupWiFi()
   Serial.println();
   Serial.print("connected: ");
   Serial.println(WiFi.localIP());
-  
-  // Set up Station
-  // Do a little work to get a unique-ish name. Append the
-  // last two bytes of the MAC (HEX'd) to "Thing-":
-  uint8_t mac[WL_MAC_ADDR_LENGTH];
-  WiFi.softAPmacAddress(mac);
-  String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
-                 String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
-  macID.toUpperCase();
-  String AP_NameString = ESP8266_SSID_PREFIX + macID;
-
-  char AP_NameChar[AP_NameString.length() + 1];
-  memset(AP_NameChar, 0, AP_NameString.length() + 1);
-
-  for (int i=0; i<AP_NameString.length(); i++)
-    AP_NameChar[i] = AP_NameString.charAt(i);
-  //AP_NameChar is the SSID for the Wireless Access Point
-  WiFi.softAP(AP_NameChar, WiFiAPPSK);
 }
