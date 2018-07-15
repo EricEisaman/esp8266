@@ -104,7 +104,7 @@ void buzzBuzzer(){
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(buzzerPin,1300,500);
   delay(500);
-  tone(buzzerPin,0);
+  digitalWrite(buzzerPin,LOW);
 }
 
 void setupWiFi()
