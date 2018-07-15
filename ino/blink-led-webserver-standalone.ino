@@ -1,6 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
+#define ESP8266_SSID "ANY_SSID_YOU_WANT"
+#define ESP8266_PASSWORD "12345678"
+
 ESP8266WebServer server;
 //password must be at least 8 characters
 const char WiFiAPPSK[] = "elhs1234";
@@ -60,21 +63,5 @@ void toggleLED(){
 void setupWiFi()
 {
   WiFi.mode(WIFI_AP);
-
-  // Do a little work to get a unique-ish name. Append the
-  // last two bytes of the MAC (HEX'd) to "Thing-":
-  uint8_t mac[WL_MAC_ADDR_LENGTH];
-  WiFi.softAPmacAddress(mac);
-  String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
-                 String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
-  macID.toUpperCase();
-  String AP_NameString = "ELHS ESP8266 " + macID;
-
-  char AP_NameChar[AP_NameString.length() + 1];
-  memset(AP_NameChar, 0, AP_NameString.length() + 1);
-
-  for (int i=0; i<AP_NameString.length(); i++)
-    AP_NameChar[i] = AP_NameString.charAt(i);
-  //AP_NameChar is the SSID for the Wireless Access Point
-  WiFi.softAP(AP_NameChar, WiFiAPPSK);
+  WiFi.softAP(ESP8266_SSID, ESP8266_PASSWORD);
 }
