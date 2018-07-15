@@ -1,12 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
-#define ESP8266_SSID "ANY_SSID_YOU_WANT"
+#define ESP8266_SSID "MY_SSID"
+//password must be at least 8 characters
 #define ESP8266_PASSWORD "12345678"
 
 ESP8266WebServer server;
-//password must be at least 8 characters
-const char WiFiAPPSK[] = "elhs1234";
 
 const char INDEX_HTML[] =
   "<!DOCTYPE HTML>"
