@@ -61,10 +61,6 @@ void loop()
   }
 }
 
-void toggleLED(){
-  digitalWrite(LED_BUILTIN,!digitalRead(LED_BUILTIN));
-}
-
 void buzzBuzzer(){
   buzzing = true;
   Firebase.setBool("share/buzz", false);
