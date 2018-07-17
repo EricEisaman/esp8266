@@ -40,28 +40,38 @@ int timePassed (int time) {
 long vibration;
 int checkFirebaseTime = 0;
 bool buzz = false;
+bool buzzing = false;
 void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     setVibration();
     Serial.println(vibration);
     buzz = Firebase.getBool("share/buzz");
-    if(buzz && Firebase.success()) buzzBuzzer();
+    if(buzz && Firebase.success() && !buzzing) buzzBuzzer();
     checkFirebaseTime = millis();
   }
 }
 
 void buzzBuzzer(){
+  buzzing = true;
   Firebase.setBool("share/buzz", false);
+  Serial.print("\n");
+  Serial.println("Buzzing Buzzer");
+  Serial.print("\n");
   //tone( pin number, frequency in hertz, duration in milliseconds);
-  tone(BUZZER_PIN,2000,500);
+  tone(buzzerPin,1300,500);
   delay(500);
-  digitalWrite(BUZZER_PIN,LOW);
+  digitalWrite(buzzerPin,LOW);
+  buzzing = false;
 }
 
 void setVibration(){
   delay(10);
   vibration = pulseIn(VIBRATION_PIN, HIGH);
+  Serial.print("\n");
+  Serial.println("Vibration: ");
+  Serial.println(vibration);
+  Serial.print("\n");
   Firebase.setInt("share/vibration",vibration);
   if(vibration > 9000){
     Firebase.setBool("share/buzz",true);
@@ -78,6 +88,7 @@ void setupWiFi()
     delay(500);
   }
   Serial.println();
-  Serial.print("connected: ");
-  Serial.println(WiFi.localIP());
+  Serial.print("Connected to ");
+  Serial.println(WiFi.SSID());
+  Serial.println();
 }
