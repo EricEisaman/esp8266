@@ -4,12 +4,8 @@
 #define FIREBASE_AUTH "YOUR FIREBASE AUTHORIZATION KEY"
 #define WIFI_SSID "YOUR_SSID"
 #define WIFI_PASSWORD "YOUR_PASSWORD"
-#define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define VIBRATION_PIN D2
 #define BUZZER_PIN D3
-
-//password must be at least 8 characters
-const char WiFiAPPSK[] = "your ESP8266 password";
 
 void setup()
 {
