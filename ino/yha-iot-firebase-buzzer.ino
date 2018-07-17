@@ -44,7 +44,7 @@ void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     buzz = Firebase.getBool("share/buzz");
-    if(buzz) buzzBuzzer();
+    if(buzz && Firebase.success()) buzzBuzzer();
     checkFirebaseTime = millis();
   }
 }
