@@ -70,7 +70,4 @@ void setupWiFi()
   Serial.print("Connected to ");
   Serial.println(WiFi.SSID());
   Serial.println();
-  Serial.print("Local IP: ");
-  Serial.println();
-  Serial.println(WiFi.localIP());
 }
