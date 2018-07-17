@@ -4,15 +4,11 @@
 #define FIREBASE_AUTH "YOUR KEY HERE"
 #define WIFI_SSID "YOUR_WIFI_NETWORK_SSID"
 #define WIFI_PASSWORD "YOUR_WIFI_NETWORK_PASSWORD"
-#define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
 #define LIGHT_IN A0
 #define LED_RED D2
 #define LED_GREEN D1
 #define LED_BLUE D0
 #define DARKNESS_THRESHOLD 250
-
-//password must be at least 8 characters
-const char WiFiAPPSK[] = "password for direct PLC login";
 
 void setup()
 {
