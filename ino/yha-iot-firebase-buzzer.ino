@@ -5,9 +5,6 @@
 #define WIFI_SSID "YOUR_WIFI_NETWORK_SSID"
 #define WIFI_PASSWORD "YOUR_WIFI_NETWORK_PASSWORD"
 #define buzzerPin D2
-#define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
-//password for direct ESP8266 login must be at least 8 characters
-const char WiFiAPPSK[] = "12345678";
 
 void setup()
 {
