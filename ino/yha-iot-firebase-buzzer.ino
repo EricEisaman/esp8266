@@ -40,21 +40,27 @@ int timePassed (int time) {
 
 int checkFirebaseTime = 0;
 bool buzz = false;
+bool buzzing = false;
 void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     buzz = Firebase.getBool("share/buzz");
-    if(buzz && Firebase.success()) buzzBuzzer();
+    if(buzz && Firebase.success() && !buzzing) buzzBuzzer();
     checkFirebaseTime = millis();
   }
 }
 
 void buzzBuzzer(){
+  buzzing = true;
   Firebase.setBool("share/buzz", false);
+  Serial.print("\n");
+  Serial.println("Buzzing Buzzer");
+  Serial.print("\n");
   //tone( pin number, frequency in hertz, duration in milliseconds);
   tone(buzzerPin,1300,500);
   delay(500);
   digitalWrite(buzzerPin,LOW);
+  buzzing = false;
 }
 
 void setupWiFi()
