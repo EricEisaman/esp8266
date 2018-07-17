@@ -6,10 +6,6 @@
 #define WIFI_PASSWORD "YOUR_NETWORK_PASSWORD"
 #define BUZZER_PIN D6
 #define BUTTON_PIN D0
-#define ESP8266_SSID_PREFIX "ANY_PREFIX_YOU_WANT"
-
-//password for direct ESP8266 login must be at least 8 characters
-const char WiFiAPPSK[] = "12345678";
 
 void setup()
 {
