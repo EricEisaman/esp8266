@@ -6,9 +6,6 @@
 #define WIFI_PASSWORD "YOUR_WIFI_NETWORK_PASSWORD"
 #define buzzerPin D2
 
-//password must be at least 8 characters
-const char WiFiAPPSK[] = "YOUR_ESP8266_PASSWORD";
-
 void setup()
 {
   Serial.begin(9600);
