@@ -56,6 +56,10 @@ void loop()
       analogWrite(LED_BLUE,1023);
     } 
   if (timePassed (checkFirebaseTime) >= 1000) {
+    Serial.print("\n");
+    Serial.println("Brightness: ");
+    Serial.println(brightness);
+    Serial.print("\n");
     Firebase.setInt("share/brightness", brightness);
     checkFirebaseTime = millis();
   }
