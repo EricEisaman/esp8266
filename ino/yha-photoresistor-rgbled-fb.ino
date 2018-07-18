@@ -57,8 +57,8 @@ void loop()
     } 
   if (timePassed (checkFirebaseTime) >= 1000) {
     Serial.print("\n");
-    Serial.println("Brightness: ");
-    Serial.println(brightness);
+    Serial.print("Brightness: ");
+    Serial.print(brightness);
     Serial.print("\n");
     Firebase.setInt("share/brightness", brightness);
     checkFirebaseTime = millis();
