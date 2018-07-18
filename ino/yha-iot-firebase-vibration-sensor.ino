@@ -45,7 +45,6 @@ void loop()
 {
   if (timePassed (checkFirebaseTime) >= 1000) {
     setVibration();
-    Serial.println(vibration);
     buzz = Firebase.getBool("share/buzz");
     if(buzz && Firebase.success() && !buzzing) buzzBuzzer();
     checkFirebaseTime = millis();
@@ -69,8 +68,8 @@ void setVibration(){
   delay(10);
   vibration = pulseIn(VIBRATION_PIN, HIGH);
   Serial.print("\n");
-  Serial.println("Vibration: ");
-  Serial.println(vibration);
+  Serial.print("Vibration: ");
+  Serial.print(vibration);
   Serial.print("\n");
   Firebase.setInt("share/vibration",vibration);
   if(vibration > 9000){
