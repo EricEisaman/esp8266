@@ -60,6 +60,10 @@ void loop()
   }
 }
 
+void toggleLED(){
+  digitalWrite(BLUE_LED,!digitalRead(BLUE_LED));
+}
+
 void setupWiFi()
 {
   WiFi.mode(WIFI_STA);
