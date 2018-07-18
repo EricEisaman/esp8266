@@ -58,9 +58,9 @@ void buzzBuzzer(){
   Serial.println("Buzzing Buzzer");
   Serial.print("\n");
   //tone( pin number, frequency in hertz, duration in milliseconds);
-  tone(buzzerPin,1300,500);
+  tone(BUZZER_PIN,1300,500);
   delay(500);
-  digitalWrite(buzzerPin,LOW);
+  digitalWrite(BUZZER_PIN,LOW);
   buzzing = false;
 }
 
