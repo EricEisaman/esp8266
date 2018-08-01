@@ -51,7 +51,7 @@ void loop()
       isDark = true;
       Serial.print("");
       Serial.println("IT IS DARK. I WILL TURN THE LED ON.");
-    } else if(analogInValue > DARKNESS_THRESHOLD){
+    } else if(brightness > DARKNESS_THRESHOLD){
       isDark = false;
       digitalWrite(LED_PIN,LOW);
     } 
