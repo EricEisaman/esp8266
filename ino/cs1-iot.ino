@@ -78,7 +78,7 @@ void toggleLED(){
 
 void pollServer(){
   HTTPClient http;
-    http.begin("http://iot-api.glitch.me/iot-get/?name=CS1&prop=LED");
+    http.begin("http://my-project.glitch.me/iot-get/?name=CS1&prop=LED");
     int httpCode = http.GET();
     // httpCode will be negative on error
     if(httpCode > 0) {
